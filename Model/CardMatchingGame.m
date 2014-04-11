@@ -23,6 +23,8 @@
     return _cards;
 }
 
+static const int CARDS_TO_CHOOSE = 3;
+
 - (instancetype) initWithCardCount:(NSUInteger)count usingDeck:(Deck *)deck {
     self = [super init];
     if(self){
@@ -34,7 +36,7 @@
                 self = nil;
                 break;
             }
-
+            
         }
     }
     return self;
@@ -57,22 +59,53 @@ static const int MISMATCH_PENALTY = 2;
         if(card.isChosen){
             card.chosen = NO;
         }else{
-            for (Card *otherCard in self.cards) {
-                if(otherCard.isChosen && !otherCard.isMatched){
-                    int matchScore =[card match:@[otherCard]];
-                    if(matchScore){
-                        self.score += matchScore * MATCH_BONUS;
-                        otherCard.matched = YES;
-                        card.matched = YES;
-                    }else{
-                        self.score-=MISMATCH_PENALTY;
-                        otherCard.chosen = NO;
-                    }
-                    break;
+            card.chosen = YES;
+            self.score -= COST_TO_CHOOSE;
+            NSMutableArray *chosenCards = [NSMutableArray new];
+            for (Card *c in chosenCards) {
+                if (c.isChosen && !c.isMatched) {
+                    [chosenCards addObject:c];
                 }
             }
-            self.score -= COST_TO_CHOOSE;
-            card.chosen = YES;
+            if([chosenCards count] == CARDS_TO_CHOOSE){
+                int matchQty = 0;
+                int matchSum = 0;
+                for (int i = 0; i<[chosenCards count]-1; i++) {
+                    for (int j = i+1; j<[chosenCards count]; j++) {
+                        int matchScore = [[chosenCards objectAtIndex:i] match:@[[chosenCards objectAtIndex:j]]];
+                        if (matchScore) {
+                            matchQty++;
+                            matchSum += matchScore;
+                        }
+                    }
+                }
+                BOOL perfectMatch = matchQty == CARDS_TO_CHOOSE;
+                if (self.isPerfectMatchMode) {
+                    if (perfectMatch) {
+                        self.score += matchSum * MATCH_BONUS;
+                        for (Card *card in chosenCards) {
+                            card.matched = YES;
+                        }
+                    }else{
+                        self.score -= MISMATCH_PENALTY;
+                        for (Card *card in chosenCards) {
+                            card.chosen = NO;
+                        }
+                    }
+                }else{
+                    if(matchSum){
+                        self.score += matchSum;
+                        for (Card *card in chosenCards) {
+                            card.matched = YES;
+                        }
+                    }else{
+                        self.score -= MISMATCH_PENALTY;
+                        for (Card *card in chosenCards) {
+                            card.chosen = NO;
+                        }
+                    }
+                }
+            }
         }
     }
 }

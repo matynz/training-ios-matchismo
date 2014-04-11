@@ -22,4 +22,6 @@
 
 @property (nonatomic, readonly) NSInteger score;
 
+@property (nonatomic, getter = isPerfectMatchMode) BOOL perfectMatchMode;
+
 @end
