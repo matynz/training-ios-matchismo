@@ -25,6 +25,7 @@
 		7475996318F784D0008109D6 /* Deck.m in Sources */ = {isa = PBXBuildFile; fileRef = 7475996218F784D0008109D6 /* Deck.m */; };
 		7475996618F788D9008109D6 /* PlayingCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 7475996518F788D9008109D6 /* PlayingCard.m */; };
 		74BB0A4718F833A8000F87BB /* PlayingCardDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = 74BB0A4618F833A8000F87BB /* PlayingCardDeck.m */; };
+		74BB0A4A18F86AA9000F87BB /* CardMatchingGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 74BB0A4918F86AA9000F87BB /* CardMatchingGame.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,8 @@
 		7475996518F788D9008109D6 /* PlayingCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayingCard.m; path = Model/PlayingCard.m; sourceTree = SOURCE_ROOT; };
 		74BB0A4518F833A8000F87BB /* PlayingCardDeck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayingCardDeck.h; sourceTree = "<group>"; };
 		74BB0A4618F833A8000F87BB /* PlayingCardDeck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayingCardDeck.m; sourceTree = "<group>"; };
+		74BB0A4818F86AA9000F87BB /* CardMatchingGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CardMatchingGame.h; path = Model/CardMatchingGame.h; sourceTree = SOURCE_ROOT; };
+		74BB0A4918F86AA9000F87BB /* CardMatchingGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CardMatchingGame.m; path = Model/CardMatchingGame.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +170,8 @@
 		7475996018F7810A008109D6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				74BB0A4818F86AA9000F87BB /* CardMatchingGame.h */,
+				74BB0A4918F86AA9000F87BB /* CardMatchingGame.m */,
 				7475996418F788D9008109D6 /* PlayingCard.h */,
 				7475996518F788D9008109D6 /* PlayingCard.m */,
 				7475995E18F780B6008109D6 /* Card.m */,
@@ -282,6 +287,7 @@
 				7475996318F784D0008109D6 /* Deck.m in Sources */,
 				7475993918F76E55008109D6 /* CardGameAppDelegate.m in Sources */,
 				7475993F18F76E55008109D6 /* CardGameViewController.m in Sources */,
+				74BB0A4A18F86AA9000F87BB /* CardMatchingGame.m in Sources */,
 				74BB0A4718F833A8000F87BB /* PlayingCardDeck.m in Sources */,
 				7475993518F76E55008109D6 /* main.m in Sources */,
 				7475995F18F780B6008109D6 /* Card.m in Sources */,
