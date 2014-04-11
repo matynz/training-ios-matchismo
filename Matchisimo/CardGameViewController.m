@@ -36,6 +36,10 @@
     [self.game chooseCardAtIndex:chosenButtonIndex];
     [self updateUI];
 }
+- (IBAction)touchReDealButton:(UIButton *)sender {
+    _game = nil;
+    [self updateUI];
+}
 
 - (void)updateUI{
     for (UIButton *cardButton in  self.cardButtons) {
