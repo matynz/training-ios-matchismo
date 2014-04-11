@@ -46,8 +46,8 @@
             [sender setBackgroundImage:[UIImage imageNamed:@"card"]
                               forState:UIControlStateNormal];
             [sender setTitle:[card contents]forState:UIControlStateNormal];
+            self.flipCount++;
         }
-        self.flipCount++;
     }
 }
 
