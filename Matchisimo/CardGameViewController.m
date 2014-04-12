@@ -56,6 +56,7 @@
         cardButton.enabled = !card.isMatched;
         self.scoreLabel.text = [NSString stringWithFormat:@"Score: %d", self.game.score];
         [self.modeSwitch setOn: self.game.isPerfectMatchMode];
+        self.modeSwitch.enabled = !self.game.hasStarted;
         
         
     }

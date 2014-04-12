@@ -36,8 +36,8 @@ static const int CARDS_TO_CHOOSE = 3;
                 self = nil;
                 break;
             }
-            
         }
+        self.started = NO;
     }
     return self;
     
@@ -54,6 +54,8 @@ static const int MISMATCH_PENALTY = 2;
 
 - (void) chooseCardAtIndex:(NSUInteger)index{
     Card *card = [self cardAtIndex:index];
+    //is This OK?
+    self.started = YES;
     
     if(!card.isMatched){
         if(card.isChosen){

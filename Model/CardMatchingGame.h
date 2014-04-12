@@ -24,4 +24,5 @@
 
 @property (nonatomic, getter = isPerfectMatchMode) BOOL perfectMatchMode;
 
+@property (nonatomic, getter = hasStarted) BOOL started;
 @end
