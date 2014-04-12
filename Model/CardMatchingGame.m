@@ -27,6 +27,7 @@ static const int CARDS_TO_CHOOSE = 3;
 
 - (instancetype) initWithCardCount:(NSUInteger)count usingDeck:(Deck *)deck {
     self = [super init];
+    NSLog(@"It initing the Game with %d cards", count);
     if(self){
         for (int i=0; i<count; i++) {
             Card *card= [deck drawRandomCard];
@@ -48,7 +49,7 @@ static const int CARDS_TO_CHOOSE = 3;
     
 }
 
-static const int MATCH_BONUS = 4;
+static const int MATCH_BONUS = 10;
 static const int COST_TO_CHOOSE = 1;
 static const int MISMATCH_PENALTY = 2;
 

@@ -54,12 +54,10 @@
         [cardButton setBackgroundImage:[self backgroundImageForCard:card]
                               forState:UIControlStateNormal];
         cardButton.enabled = !card.isMatched;
-        self.scoreLabel.text = [NSString stringWithFormat:@"Score: %d", self.game.score];
-        [self.modeSwitch setOn: self.game.isPerfectMatchMode];
-        self.modeSwitch.enabled = !self.game.hasStarted;
-        
-        
     }
+    self.scoreLabel.text = [NSString stringWithFormat:@"Score: %d", self.game.score];
+    [self.modeSwitch setOn: self.game.isPerfectMatchMode];
+    self.modeSwitch.enabled = !self.game.hasStarted;
 }
 
 - (NSString *) titleForCard:(Card *) card{
