@@ -62,11 +62,12 @@ static const int MISMATCH_PENALTY = 2;
             card.chosen = YES;
             self.score -= COST_TO_CHOOSE;
             NSMutableArray *chosenCards = [NSMutableArray new];
-            for (Card *c in chosenCards) {
+            for (Card *c in self.cards) {
                 if (c.isChosen && !c.isMatched) {
                     [chosenCards addObject:c];
                 }
             }
+            NSLog(@"%d turned cards", [chosenCards count]);
             if([chosenCards count] == CARDS_TO_CHOOSE){
                 int matchQty = 0;
                 int matchSum = 0;
@@ -91,6 +92,8 @@ static const int MISMATCH_PENALTY = 2;
                         for (Card *card in chosenCards) {
                             card.chosen = NO;
                         }
+                        //So to see the last turned card
+                        card.chosen = YES;
                     }
                 }else{
                     if(matchSum){
@@ -103,6 +106,9 @@ static const int MISMATCH_PENALTY = 2;
                         for (Card *card in chosenCards) {
                             card.chosen = NO;
                         }
+                        //So to see the last turned card
+                        card.chosen = YES;
+
                     }
                 }
             }

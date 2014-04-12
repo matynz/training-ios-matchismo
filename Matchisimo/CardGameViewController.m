@@ -15,6 +15,7 @@
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
 @property (nonatomic,strong) CardMatchingGame *game;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
+@property (weak, nonatomic) IBOutlet UISwitch *modeSwitch;
 @end
 
 @implementation CardGameViewController
@@ -40,6 +41,9 @@
     _game = nil;
     [self updateUI];
 }
+- (IBAction)changeModeSwitch:(UISwitch *)sender {
+    self.game.perfectMatchMode = sender.isOn;
+}
 
 - (void)updateUI{
     for (UIButton *cardButton in  self.cardButtons) {
@@ -51,6 +55,7 @@
                               forState:UIControlStateNormal];
         cardButton.enabled = !card.isMatched;
         self.scoreLabel.text = [NSString stringWithFormat:@"Score: %d", self.game.score];
+        [self.modeSwitch setOn: self.game.isPerfectMatchMode];
         
         
     }
